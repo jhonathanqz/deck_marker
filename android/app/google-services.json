@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "176336110397",
+    "project_id": "deck-marker",
+    "storage_bucket": "deck-marker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176336110397:android:5c30c415eb3f6a7a5afb54",
+        "android_client_info": {
+          "package_name": "com.queiroz.deck_marker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176336110397-d8g2p753n3p90b3kilchjvl9kah43r3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6F54cDu58O4-q8klpHFVT89amdsr6yKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176336110397-d8g2p753n3p90b3kilchjvl9kah43r3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
