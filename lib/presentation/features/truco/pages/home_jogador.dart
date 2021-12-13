@@ -2,7 +2,6 @@ import 'package:deck_marker/app/injection_container.dart';
 import 'package:deck_marker/app/name_route.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
 import 'package:deck_marker/presentation/shared/helpers/snack_helper.dart';
-import 'package:deck_marker/presentation/shared/style/app_colors.dart';
 import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
 import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
 import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
