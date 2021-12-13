@@ -1,11 +1,9 @@
+import 'package:deck_marker/app/firebase.dart' as firebase;
 import 'package:deck_marker/app/injection_container.dart';
-import 'package:deck_marker/presentation/features/settings/mobx/settings.store.dart';
 import 'package:deck_marker/presentation/features/splash/mobx/splash.store.dart';
 import 'package:deck_marker/presentation/shared/style/app_images.dart';
 import 'package:deck_marker/utils/layout.dart';
 import 'package:flutter/material.dart';
-
-import 'package:deck_marker/app/firebase.dart' as firebase;
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);

@@ -4,10 +4,13 @@ import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
 import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
 import 'package:deck_marker/presentation/features/truco/widgets/alert_novo_jogo_truco.dart';
 import 'package:deck_marker/presentation/shared/helpers/dialog_helper.dart';
+import 'package:deck_marker/presentation/shared/style/app_colors.dart';
+import 'package:deck_marker/presentation/shared/style/app_input_border.dart';
+import 'package:deck_marker/presentation/shared/widgets/button/button_primary.dart';
+import 'package:deck_marker/presentation/shared/widgets/button/button_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:deck_marker/presentation/shared/widgets/button/button_value.dart';
 
 class HomeJogo extends StatefulWidget {
   @override
@@ -102,18 +105,11 @@ class _HomeJogoState extends State<HomeJogo> {
                             child: Container(
                               height: 40.0,
                               width: 150,
-                              child: RaisedButton(
-                                onPressed: () {
-                                  showNovaPartida(context);
-                                },
-                                child: Text(
-                                  "Nova Partida",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                  ),
-                                ),
-                                color: Colors.black,
+                              child: ButtonPrimary(
+                                onTap: () => showNovaPartida(context),
+                                title: 'Nova Partida',
+                                colorButton: AppColors.black,
+                                colorText: AppColors.white,
                               ),
                             ),
                           ),
@@ -131,18 +127,11 @@ class _HomeJogoState extends State<HomeJogo> {
                             child: Container(
                               height: 40.0,
                               width: 150,
-                              child: RaisedButton(
-                                onPressed: () {
-                                  showNovoJogoTruco(context);
-                                },
-                                child: Text(
-                                  "Novo Jogo",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                color: Colors.black,
+                              child: ButtonPrimary(
+                                onTap: () => showNovoJogoTruco(context),
+                                title: 'Nova Jogo',
+                                colorButton: AppColors.black,
+                                colorText: AppColors.white,
                               ),
                             ),
                           ),
@@ -160,13 +149,17 @@ class _HomeJogoState extends State<HomeJogo> {
                             child: Container(
                               height: 40.0,
                               width: 150,
-                              child: RaisedButton(
-                                onPressed: () {
+                              decoration: AppInputBorder.borderRadius.copyWith(
+                                color: AppColors.black,
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
                                   ij.reverse();
                                   _mensagemTime1();
                                   _mensagemTime2();
                                 },
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       FontAwesomeIcons.history,
@@ -185,7 +178,6 @@ class _HomeJogoState extends State<HomeJogo> {
                                     ),
                                   ],
                                 ),
-                                color: Colors.black,
                               ),
                             ),
                           ),

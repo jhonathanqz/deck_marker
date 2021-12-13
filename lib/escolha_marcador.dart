@@ -1,7 +1,6 @@
 import 'package:deck_marker/app/injection_container.dart';
 import 'package:deck_marker/app/name_route.dart';
 import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
-import 'package:deck_marker/presentation/features/buraco/pages/escolha_do_jogo_buraco.dart';
 import 'package:deck_marker/presentation/features/buraco/widgets/card_escolha_jogo.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
 import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
