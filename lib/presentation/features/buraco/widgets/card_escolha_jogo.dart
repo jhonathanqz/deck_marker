@@ -1,3 +1,5 @@
+import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
+import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CardEscolhaJogo extends StatelessWidget {
@@ -8,22 +10,21 @@ class CardEscolhaJogo extends StatelessWidget {
   final Color colorBackground;
   final String directoryImage;
 
-  CardEscolhaJogo({
+  const CardEscolhaJogo({
+    Key? key,
     required this.titleService,
     required this.subTitleService,
     required this.icon,
     required this.colorBackground,
     required this.function,
     required this.directoryImage,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: function,
       child: Container(
-        //height: 150,
-        //width: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: colorBackground,
@@ -32,30 +33,24 @@ class CardEscolhaJogo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-                height: 80,
-                child: Image.asset(
-                  directoryImage,
-                  fit: BoxFit.contain,
-                )),
-            SizedBox(height: 10),
-            Container(
-              child: Text(
-                titleService,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+            SizedBox(
+              height: 80,
+              child: Image.asset(
+                directoryImage,
+                fit: BoxFit.cover,
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 0),
+            AppSpacing.sm,
+            SizedBox(
+              child: Text(
+                titleService,
+                style: AppTextStyles.headingBold,
+              ),
+            ),
+            SizedBox(
               child: Text(
                 subTitleService,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+                style: AppTextStyles.headingBold,
               ),
             )
           ],

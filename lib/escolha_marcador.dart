@@ -5,6 +5,7 @@ import 'package:deck_marker/presentation/features/buraco/widgets/card_escolha_jo
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
 import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
+import 'package:deck_marker/presentation/shared/style/app_images.dart';
 import 'package:deck_marker/presentation/shared/widgets/scaffold/scaffold_primary.dart';
 import 'package:deck_marker/utils/cool_navigate.dart';
 import 'package:flutter/material.dart';
@@ -36,20 +37,21 @@ class EscolhaMarcador extends StatelessWidget {
                     mainAxisSpacing: 16,
                     children: <Widget>[
                       CardEscolhaJogo(
-                          directoryImage: 'images/truco2.png',
-                          titleService: 'Marcador',
-                          subTitleService: 'Truco',
-                          icon: FontAwesomeIcons.userFriends,
-                          colorBackground: AppColors.cardsColor,
-                          function: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        EscolhaDoJogoTruco()));
-                          }),
+                        directoryImage: AppImages.trucoIcon,
+                        titleService: 'Marcador',
+                        subTitleService: 'Truco',
+                        icon: FontAwesomeIcons.userFriends,
+                        colorBackground: AppColors.cardsColor,
+                        function: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      EscolhaDoJogoTruco()));
+                        },
+                      ),
                       CardEscolhaJogo(
-                        directoryImage: 'images/buraco3.png',
+                        directoryImage: AppImages.buracoIcon,
                         titleService: 'Marcador',
                         subTitleService: 'Buraco',
                         icon: FontAwesomeIcons.users,
