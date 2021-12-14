@@ -14,11 +14,11 @@ class AppModule {
   static Map<String, Widget Function(BuildContext)> routes = {
     NameRoute.splash: (_) => const SplashScreenPage(),
     NameRoute.home: (_) => EscolhaMarcador(),
-    NameRoute.escolhaJogoBuraco: (_) => EscolhaDoJogoBuraco(),
+    NameRoute.escolhaJogoBuraco: (_) => const EscolhaDoJogoBuraco(),
     NameRoute.jogadoresBuraco: (_) => JogadoresBuraco(),
-    NameRoute.jogoBuraco: (_) => JogoBuraco(),
+    NameRoute.jogoBuraco: (_) => const JogoBuraco(),
     NameRoute.pontuacaoBuraco: (_) => PontuacaoBuraco(),
-    NameRoute.resumoPontuacaoBuraco: (_) => PontuacaoResumeBuraco(),
+    NameRoute.resumoPontuacaoBuraco: (_) => const PontuacaoResumeBuraco(),
     NameRoute.homeJogadorTruco: (_) => HomeJogador(),
   };
 
