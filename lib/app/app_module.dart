@@ -27,7 +27,7 @@ class AppModule {
   };
 
   static ThemeData get theme => ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       );
 }
