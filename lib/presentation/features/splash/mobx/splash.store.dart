@@ -41,7 +41,5 @@ abstract class SplashBase with Store {
         ((await settingsStore.getPlayersBuraco()).playersTeam1);
     bs.fullPlayersTeam2 =
         ((await settingsStore.getPlayersBuraco()).playersTeam2);
-
-    print('Salvei os pontos: ${bs.pontosTime1}');
   }
 }

@@ -74,27 +74,27 @@ class JogadoresBuraco extends StatelessWidget {
                       ),
                     ),
                     ijBuracoStore.players2Buraco == true
-                        ? FormPlayersTeam1(
+                        ? const FormPlayersTeam1(
                             numberPlayers: 2,
                           )
                         : Container(),
                     ijBuracoStore.players4Buraco == true
-                        ? FormPlayersTeam1(
+                        ? const FormPlayersTeam1(
                             numberPlayers: 4,
                           )
                         : Container(),
                     ijBuracoStore.players6Buraco == true
-                        ? FormPlayersTeam1(
+                        ? const FormPlayersTeam1(
                             numberPlayers: 6,
                           )
                         : Container(),
                     ijBuracoStore.players8Buraco == true
-                        ? FormPlayersTeam1(
+                        ? const FormPlayersTeam1(
                             numberPlayers: 8,
                           )
                         : Container(),
                     ijBuracoStore.players10Buraco == true
-                        ? FormPlayersTeam1(
+                        ? const FormPlayersTeam1(
                             numberPlayers: 10,
                           )
                         : Container(),
@@ -114,22 +114,22 @@ class JogadoresBuraco extends StatelessWidget {
                             ),
                           ),
                           ijBuracoStore.players4Buraco == true
-                              ? FormPlayersTeam2(
+                              ? const FormPlayersTeam2(
                                   numberPlayers: 4,
                                 )
                               : Container(),
                           ijBuracoStore.players6Buraco == true
-                              ? FormPlayersTeam2(
+                              ? const FormPlayersTeam2(
                                   numberPlayers: 6,
                                 )
                               : Container(),
                           ijBuracoStore.players8Buraco == true
-                              ? FormPlayersTeam2(
+                              ? const FormPlayersTeam2(
                                   numberPlayers: 8,
                                 )
                               : Container(),
                           ijBuracoStore.players10Buraco == true
-                              ? FormPlayersTeam2(
+                              ? const FormPlayersTeam2(
                                   numberPlayers: 10,
                                 )
                               : Container(),

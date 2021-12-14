@@ -1,16 +1,15 @@
+import 'package:deck_marker/app/injection_container.dart';
+import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
 import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
-import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
 import 'package:deck_marker/presentation/shared/widgets/textfield/simple_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
-import 'package:deck_marker/app/injection_container.dart';
 
 class FormPlayersTeam1 extends StatefulWidget {
-  FormPlayersTeam1({
+  const FormPlayersTeam1({
     Key? key,
     required this.numberPlayers,
-  });
+  }) : super(key: key);
   final int numberPlayers;
 
   @override

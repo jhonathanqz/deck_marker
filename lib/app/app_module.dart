@@ -6,7 +6,9 @@ import 'package:deck_marker/presentation/features/buraco/pages/jogo_buraco.dart'
 import 'package:deck_marker/presentation/features/buraco/pages/pontuacao_buraco.dart';
 import 'package:deck_marker/presentation/features/buraco/pages/pontuacao_resume_buraco.dart';
 import 'package:deck_marker/presentation/features/splash/pages/splash_screen_page.dart';
+import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
 import 'package:deck_marker/presentation/features/truco/pages/home_jogador.dart';
+import 'package:deck_marker/presentation/features/truco/pages/jogo_truco.dart';
 import 'package:flutter/material.dart';
 
 class AppModule {
@@ -19,7 +21,9 @@ class AppModule {
     NameRoute.jogoBuraco: (_) => const JogoBuraco(),
     NameRoute.pontuacaoBuraco: (_) => PontuacaoBuraco(),
     NameRoute.resumoPontuacaoBuraco: (_) => const PontuacaoResumeBuraco(),
-    NameRoute.homeJogadorTruco: (_) => HomeJogador(),
+    NameRoute.homeJogadorTruco: (_) => const HomeJogador(),
+    NameRoute.escolhaJogoTruco: (_) => const EscolhaDoJogoTruco(),
+    NameRoute.jogoTruco: (_) => const HomeJogo(),
   };
 
   static ThemeData get theme => ThemeData(

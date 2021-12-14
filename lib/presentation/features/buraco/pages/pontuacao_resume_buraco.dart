@@ -178,7 +178,7 @@ class PontuacaoResumeBuraco extends StatelessWidget {
   void showWinner(context) {
     DialogHelper.open(
       context: context,
-      content: AlertWinner(),
+      content: const AlertWinner(),
     );
   }
 }

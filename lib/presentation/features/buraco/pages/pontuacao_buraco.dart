@@ -32,7 +32,7 @@ class PontuacaoBuraco extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        FormPontuacao(),
+                        const FormPontuacao(),
                         AppSpacing.xl,
                         ButtonPrimary(
                           onTap: () {
@@ -71,7 +71,7 @@ class PontuacaoBuraco extends StatelessWidget {
   void showWinner(context) {
     DialogHelper.open(
       context: context,
-      content: AlertWinner(),
+      content: const AlertWinner(),
     );
   }
 }

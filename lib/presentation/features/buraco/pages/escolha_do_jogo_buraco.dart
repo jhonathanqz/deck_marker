@@ -138,6 +138,5 @@ class _EscolhaDoJogoBuracoState extends State<EscolhaDoJogoBuraco> {
   void deleteFields() {
     final ijBuracoStore = sl<BuracoStore>();
     ijBuracoStore.clearFieldsBuraco();
-    print('******todos os campos apagados com sucesso!');
   }
 }

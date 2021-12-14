@@ -49,7 +49,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              children: const [
                 ColorLoader(
                   dotOneColor: AppColors.white,
                   dotTwoColor: AppColors.white,

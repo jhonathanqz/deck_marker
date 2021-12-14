@@ -3,7 +3,6 @@ import 'package:deck_marker/app/name_route.dart';
 import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
 import 'package:deck_marker/presentation/features/buraco/widgets/card_escolha_jogo.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
-import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
 import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
 import 'package:deck_marker/presentation/shared/style/app_images.dart';
@@ -46,11 +45,7 @@ class EscolhaMarcador extends StatelessWidget {
                         icon: FontAwesomeIcons.userFriends,
                         colorBackground: AppColors.cardsColor,
                         function: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      EscolhaDoJogoTruco()));
+                          coolNavigate.navigateTo(NameRoute.escolhaJogoTruco);
                         },
                       ),
                       CardEscolhaJogo(
