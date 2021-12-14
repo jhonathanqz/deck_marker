@@ -1,19 +1,13 @@
 import 'package:deck_marker/app/injection_container.dart';
 import 'package:deck_marker/app/name_route.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_dois/form2_10_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_dois/form2_4_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_dois/form2_6_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_dois/form2_8_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_um/form_10_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_um/form_2_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_um/form_4_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_um/form_6_players.dart';
-import 'package:deck_marker/presentation/features/buraco/form/time_um/form_8_players.dart';
+import 'package:deck_marker/presentation/features/buraco/form/time_dois/form_players_team2.dart';
+import 'package:deck_marker/presentation/features/buraco/form/time_um/form_players_team1.dart';
 import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
 import 'package:deck_marker/presentation/features/settings/mobx/settings.store.dart';
 import 'package:deck_marker/presentation/shared/helpers/snack_helper.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
 import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
+import 'package:deck_marker/presentation/shared/style/app_images.dart';
 import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
 import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
 import 'package:deck_marker/presentation/shared/widgets/button/button_primary.dart';
@@ -48,7 +42,7 @@ class JogadoresBuraco extends StatelessWidget {
                     height: 150,
                     width: 150,
                     child: Image.asset(
-                      "images/buraco.png",
+                      AppImages.buraco,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -80,19 +74,29 @@ class JogadoresBuraco extends StatelessWidget {
                       ),
                     ),
                     ijBuracoStore.players2Buraco == true
-                        ? Form2Players()
+                        ? FormPlayersTeam1(
+                            numberPlayers: 2,
+                          )
                         : Container(),
                     ijBuracoStore.players4Buraco == true
-                        ? Form4Players()
+                        ? FormPlayersTeam1(
+                            numberPlayers: 4,
+                          )
                         : Container(),
                     ijBuracoStore.players6Buraco == true
-                        ? Form6Players()
+                        ? FormPlayersTeam1(
+                            numberPlayers: 6,
+                          )
                         : Container(),
                     ijBuracoStore.players8Buraco == true
-                        ? Form8Players()
+                        ? FormPlayersTeam1(
+                            numberPlayers: 8,
+                          )
                         : Container(),
                     ijBuracoStore.players10Buraco == true
-                        ? Form10Players()
+                        ? FormPlayersTeam1(
+                            numberPlayers: 10,
+                          )
                         : Container(),
                     AppSpacing.md,
                     //******************************************************************************************************************************************** */
@@ -110,25 +114,34 @@ class JogadoresBuraco extends StatelessWidget {
                             ),
                           ),
                           ijBuracoStore.players4Buraco == true
-                              ? Formu4Players()
+                              ? FormPlayersTeam2(
+                                  numberPlayers: 4,
+                                )
                               : Container(),
                           ijBuracoStore.players6Buraco == true
-                              ? Formu6Players()
+                              ? FormPlayersTeam2(
+                                  numberPlayers: 6,
+                                )
                               : Container(),
                           ijBuracoStore.players8Buraco == true
-                              ? Formu8Players()
+                              ? FormPlayersTeam2(
+                                  numberPlayers: 8,
+                                )
                               : Container(),
                           ijBuracoStore.players10Buraco == true
-                              ? Formu10Players()
+                              ? FormPlayersTeam2(
+                                  numberPlayers: 10,
+                                )
                               : Container(),
                         ],
                       ),
                     ),
-                    AppSpacing.md,
+                    AppSpacing.xl,
                     ButtonPrimary(
                       onTap: () => _validFormPlayers(context),
                       title: 'Entrar',
                     ),
+                    AppSpacing.xl,
                   ],
                 ),
               ],
