@@ -7,4 +7,5 @@ class AppImages {
   static String buracoIcon = 'images/buracoo2.png';
   static String trucoIcon = 'images/trucoo.png';
   static String buraco = 'images/buraco.png';
+  static String cartas = 'images/cartas1.png';
 }

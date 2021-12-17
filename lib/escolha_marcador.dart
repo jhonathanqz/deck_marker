@@ -46,6 +46,7 @@ class EscolhaMarcador extends StatelessWidget {
                         colorBackground: AppColors.cardsColor,
                         function: () {
                           coolNavigate.navigateTo(NameRoute.escolhaJogoTruco);
+                          //coolNavigate.navigateTo(NameRoute.trucoTeste);
                         },
                       ),
                       CardEscolhaJogo(

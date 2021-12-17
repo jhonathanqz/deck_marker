@@ -9,6 +9,7 @@ import 'package:deck_marker/presentation/features/splash/pages/splash_screen_pag
 import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
 import 'package:deck_marker/presentation/features/truco/pages/home_jogador.dart';
 import 'package:deck_marker/presentation/features/truco/pages/jogo_truco.dart';
+import 'package:deck_marker/presentation/features/truco/pages/new_jogo_truco.dart';
 import 'package:flutter/material.dart';
 
 class AppModule {
@@ -24,6 +25,7 @@ class AppModule {
     NameRoute.homeJogadorTruco: (_) => const HomeJogador(),
     NameRoute.escolhaJogoTruco: (_) => const EscolhaDoJogoTruco(),
     NameRoute.jogoTruco: (_) => const HomeJogo(),
+    NameRoute.newJogoTruco: (_) => const NewJogoTruco(),
   };
 
   static ThemeData get theme => ThemeData(
