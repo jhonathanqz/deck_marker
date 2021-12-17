@@ -180,9 +180,9 @@ class _HomeJogadorState extends State<HomeJogador> {
 
   void _start(BuildContext context) {
     if (ij.forPlayers == true && ij.isForPlayersValid == true) {
-      coolNavigate.pushReplacementNamed(NameRoute.jogoTruco);
+      coolNavigate.pushReplacementNamed(NameRoute.newJogoTruco);
     } else if (ij.isPlayersValid == true && ij.forPlayers == false) {
-      coolNavigate.pushReplacementNamed(NameRoute.jogoTruco);
+      coolNavigate.pushReplacementNamed(NameRoute.newJogoTruco);
     } else {
       _onFail(context);
     }

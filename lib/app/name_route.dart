@@ -10,4 +10,5 @@ class NameRoute {
   static const String homeJogadorTruco = '/home-jogador-truco';
   static const String escolhaJogoTruco = '/escolha-truco';
   static const String jogoTruco = '/jogo-truco';
+  static const String newJogoTruco = '/truco-teste';
 }
