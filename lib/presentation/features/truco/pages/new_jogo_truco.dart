@@ -1,6 +1,7 @@
 import 'package:deck_marker/app/injection_container.dart';
 import 'package:deck_marker/app/name_route.dart';
 import 'package:deck_marker/presentation/features/buraco/widgets/alert_nova_partida.dart';
+import 'package:deck_marker/presentation/features/settings/mobx/settings.store.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
 import 'package:deck_marker/presentation/features/truco/widgets/alert_novo_jogo_truco.dart';
 import 'package:deck_marker/presentation/features/truco/widgets/row_button_truco.dart';
@@ -26,6 +27,7 @@ class NewJogoTruco extends StatefulWidget {
 
 class _NewJogoTrucoState extends State<NewJogoTruco> {
   final ts = sl<TrucoStore>();
+  final ss = sl<SettingsStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +60,7 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
                               children: [
                                 Center(
                                   child: Text(
-                                    ts.forPlayers
-                                        ? '${ts.nameJogador1} | ${ts.nameJogador2} '
-                                        : ts.nameJogador1,
+                                    ts.fullPlayersTeam1,
                                     style: AppTextStyles.headingBold,
                                   ),
                                 ),
@@ -126,9 +126,7 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
                               children: [
                                 Center(
                                   child: Text(
-                                    ts.forPlayers
-                                        ? '${ts.nameJogador3} | ${ts.nameJogador4} '
-                                        : ts.nameJogador2,
+                                    ts.fullPlayersTeam2,
                                     style: AppTextStyles.headingBold,
                                   ),
                                 ),
@@ -196,7 +194,7 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
 
   void _increaseScore1({
     required int teamNumber,
-  }) {
+  }) async {
     if (teamNumber == 1) {
       if (ts.time1 >= 0 && ts.time1 <= 11 && ts.time2 < 12) {
         _changeTimeum(1);
@@ -208,6 +206,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
       if (ts.time2 >= 12) {
         ts.messageTime1 = "Por favor, inicie um novo Jogo!";
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
     if (teamNumber == 2) {
@@ -218,13 +222,19 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
 
         _mensagemTime2();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
   }
 
   void _increaseScore3({
     required int teamNumber,
-  }) {
+  }) async {
     if (teamNumber == 1) {
       if (ts.time1 >= 0 && ts.time1 <= 11 && ts.time2 < 12) {
         _changeTimeum(3);
@@ -232,6 +242,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
         ts.b = 0;
         _mensagemTime1();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
     if (teamNumber == 2) {
@@ -242,13 +258,19 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
 
         _mensagemTime2();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
   }
 
   void _increaseScore6({
     required int teamNumber,
-  }) {
+  }) async {
     if (teamNumber == 1) {
       if (ts.time1 >= 0 && ts.time1 <= 11 && ts.time2 < 12) {
         _changeTimeum(6);
@@ -256,6 +278,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
         ts.b = 0;
         _mensagemTime1();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
     if (teamNumber == 2) {
@@ -266,13 +294,19 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
 
         _mensagemTime2();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
   }
 
   void _increaseScore9({
     required int teamNumber,
-  }) {
+  }) async {
     if (teamNumber == 1) {
       if (ts.time1 >= 0 && ts.time1 <= 11 && ts.time2 < 12) {
         _changeTimeum(9);
@@ -280,6 +314,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
         ts.b = 0;
         _mensagemTime1();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
     if (teamNumber == 2) {
@@ -290,13 +330,19 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
 
         _mensagemTime2();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
   }
 
   void _increaseScore12({
     required int teamNumber,
-  }) {
+  }) async {
     if (teamNumber == 1) {
       if (ts.time1 >= 0 && ts.time1 <= 11 && ts.time2 < 12) {
         _changeTimeum(12);
@@ -304,6 +350,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
         ts.b = 0;
         _mensagemTime1();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
     if (teamNumber == 2) {
@@ -314,6 +366,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
 
         _mensagemTime2();
       }
+      await ss.setScoreTruco(
+        context: context,
+        scoreTeam1: ts.time1.toString(),
+        scoreTeam2: ts.time2.toString(),
+        callbackSucess: () {},
+      );
       return;
     }
   }
@@ -324,6 +382,12 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
       content: AlertNovoJogoTruco(
         function: () async {
           ts.novoJogo();
+          await ss.setScoreTruco(
+            context: context,
+            scoreTeam1: ts.time1.toString(),
+            scoreTeam2: ts.time2.toString(),
+            callbackSucess: () {},
+          );
           coolNavigate.goBack();
         },
       ),
@@ -338,15 +402,22 @@ class _NewJogoTrucoState extends State<NewJogoTruco> {
           ts.deleteAll();
           coolNavigate.goBack();
           coolNavigate.removeUntil(NameRoute.escolhaJogoTruco);
+          await ss.wipeInitials(context: context);
         },
       ),
     );
   }
 
-  void _desfazer() {
+  void _desfazer() async {
     ts.reverse();
     _mensagemTime1();
     _mensagemTime2();
+    await ss.setScoreTruco(
+      context: context,
+      scoreTeam1: ts.time1.toString(),
+      scoreTeam2: ts.time2.toString(),
+      callbackSucess: () {},
+    );
   }
 
   void _changeTimeum(int delta) {
