@@ -62,6 +62,26 @@ abstract class TrucoBase with Store {
   @observable
   String nameJogador4 = '';
 
+  @observable
+  String fullPlayersTeam1 = '';
+
+  @observable
+  String fullPlayersTeam2 = '';
+
+  @action
+  void setFullPlayersTeam() {
+    if (forPlayers) {
+      fullPlayersTeam1 = '$nameJogador1 | $nameJogador2';
+      fullPlayersTeam2 = '$nameJogador3 | $nameJogador4';
+      return;
+    }
+    if (!forPlayers) {
+      fullPlayersTeam1 = nameJogador1;
+      fullPlayersTeam2 = nameJogador2;
+      return;
+    }
+  }
+
   @action
   void setJogador1(String value) => nameJogador1 = value.capitalizeFirstOfEach;
 
@@ -96,6 +116,8 @@ abstract class TrucoBase with Store {
     nameJogador2 = '';
     nameJogador3 = '';
     nameJogador4 = '';
+    fullPlayersTeam1 = '';
+    fullPlayersTeam2 = '';
     forPlayers = false;
   }
 }

@@ -2,9 +2,13 @@ import 'package:deck_marker/data/features/settings/provider/settings_provider_im
 import 'package:deck_marker/domain/repositories/settings_repository.dart';
 import 'package:deck_marker/domain/use_cases/delete_table_use_case.dart';
 import 'package:deck_marker/domain/use_cases/get_players_buraco_settings_use_case.dart';
+import 'package:deck_marker/domain/use_cases/get_players_truco_settings_use_case.dart';
 import 'package:deck_marker/domain/use_cases/get_score_buraco_settings_use_case.dart';
+import 'package:deck_marker/domain/use_cases/get_score_truco_settings_use_case.dart';
 import 'package:deck_marker/domain/use_cases/set_players_buraco_settings_use_case.dart';
+import 'package:deck_marker/domain/use_cases/set_players_truco_settings_use_case.dart';
 import 'package:deck_marker/domain/use_cases/set_score_buraco_settings_use_case.dart';
+import 'package:deck_marker/domain/use_cases/set_score_truco_settings_use_case.dart';
 import 'package:deck_marker/infrastructure/features/settings/repositories/contracts/settings_provider.dart';
 import 'package:deck_marker/infrastructure/features/settings/repositories/settings_repository_impl.dart';
 import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
@@ -66,6 +70,30 @@ void setupUseCase() {
       settingsRepository: sl<SettingsRepository>(),
     ),
   );
+  /* */
+  sl.registerLazySingleton<GetScoreTrucoSettingsUseCase>(
+    () => GetScoreTrucoSettingsUseCase(
+      settingsRepository: sl<SettingsRepository>(),
+    ),
+  );
+
+  sl.registerLazySingleton<SetScoreTrucoSettingsUseCase>(
+    () => SetScoreTrucoSettingsUseCase(
+      settingsRepository: sl<SettingsRepository>(),
+    ),
+  );
+
+  sl.registerLazySingleton<GetPlayersTrucoSettingsUseCase>(
+    () => GetPlayersTrucoSettingsUseCase(
+      settingsRepository: sl<SettingsRepository>(),
+    ),
+  );
+
+  sl.registerLazySingleton<SetPlayersTrucoSettingsUseCase>(
+    () => SetPlayersTrucoSettingsUseCase(
+      settingsRepository: sl<SettingsRepository>(),
+    ),
+  );
 }
 
 setupMobx() {
@@ -80,6 +108,10 @@ setupMobx() {
       deleteTableUseCase: sl<DeleteTableUseCase>(),
       getPlayersBuracoSettingsUseCase: sl<GetPlayersBuracoSettingsUseCase>(),
       setPlayersBuracoSettingsUseCase: sl<SetPlayersBuracoSettingsUseCase>(),
+      getScoreTrucoSettingsUseCase: sl<GetScoreTrucoSettingsUseCase>(),
+      setScoreTrucoSettingsUseCase: sl<SetScoreTrucoSettingsUseCase>(),
+      getPlayersTrucoSettingsUseCase: sl<GetPlayersTrucoSettingsUseCase>(),
+      setPlayersTrucoSettingsUseCase: sl<SetPlayersTrucoSettingsUseCase>(),
     ),
   );
 }

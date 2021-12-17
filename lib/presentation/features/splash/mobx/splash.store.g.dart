@@ -25,6 +25,15 @@ mixin _$SplashStore on SplashBase, Store {
     return _$setScoreBDAsyncAction.run(() => super.setScoreBD(context));
   }
 
+  final _$setScoreTrucoBDAsyncAction =
+      AsyncAction('SplashBase.setScoreTrucoBD');
+
+  @override
+  Future<void> setScoreTrucoBD(BuildContext context) {
+    return _$setScoreTrucoBDAsyncAction
+        .run(() => super.setScoreTrucoBD(context));
+  }
+
   @override
   String toString() {
     return '''

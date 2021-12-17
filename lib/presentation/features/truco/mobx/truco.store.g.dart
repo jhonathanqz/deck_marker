@@ -189,6 +189,36 @@ mixin _$TrucoStore on TrucoBase, Store {
     });
   }
 
+  final _$fullPlayersTeam1Atom = Atom(name: 'TrucoBase.fullPlayersTeam1');
+
+  @override
+  String get fullPlayersTeam1 {
+    _$fullPlayersTeam1Atom.reportRead();
+    return super.fullPlayersTeam1;
+  }
+
+  @override
+  set fullPlayersTeam1(String value) {
+    _$fullPlayersTeam1Atom.reportWrite(value, super.fullPlayersTeam1, () {
+      super.fullPlayersTeam1 = value;
+    });
+  }
+
+  final _$fullPlayersTeam2Atom = Atom(name: 'TrucoBase.fullPlayersTeam2');
+
+  @override
+  String get fullPlayersTeam2 {
+    _$fullPlayersTeam2Atom.reportRead();
+    return super.fullPlayersTeam2;
+  }
+
+  @override
+  set fullPlayersTeam2(String value) {
+    _$fullPlayersTeam2Atom.reportWrite(value, super.fullPlayersTeam2, () {
+      super.fullPlayersTeam2 = value;
+    });
+  }
+
   final _$TrucoBaseActionController = ActionController(name: 'TrucoBase');
 
   @override
@@ -230,6 +260,17 @@ mixin _$TrucoStore on TrucoBase, Store {
         _$TrucoBaseActionController.startAction(name: 'TrucoBase.novoJogo');
     try {
       return super.novoJogo();
+    } finally {
+      _$TrucoBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setFullPlayersTeam() {
+    final _$actionInfo = _$TrucoBaseActionController.startAction(
+        name: 'TrucoBase.setFullPlayersTeam');
+    try {
+      return super.setFullPlayersTeam();
     } finally {
       _$TrucoBaseActionController.endAction(_$actionInfo);
     }
@@ -304,6 +345,8 @@ nameJogador1: ${nameJogador1},
 nameJogador2: ${nameJogador2},
 nameJogador3: ${nameJogador3},
 nameJogador4: ${nameJogador4},
+fullPlayersTeam1: ${fullPlayersTeam1},
+fullPlayersTeam2: ${fullPlayersTeam2},
 isPlayersValid: ${isPlayersValid},
 isForPlayersValid: ${isForPlayersValid}
     ''';
