@@ -228,7 +228,6 @@ abstract class BuracoBase with Store {
     pontosRodadaTime2 = 0;
     time1Venceu = false;
     time2Venceu = false;
-    print('***Limpei todos os campos do buraco');
   }
 
   @action
@@ -257,7 +256,6 @@ abstract class BuracoBase with Store {
     time2Venceu = false;
     pontosRodadaTime1 = 0;
     pontosRodadaTime2 = 0;
-    print('**Limpei os campos da tela de nova pontuação');
   }
 
   @action
@@ -268,7 +266,6 @@ abstract class BuracoBase with Store {
     time2Venceu = false;
     pontosRodadaTime1 = 0;
     pontosRodadaTime2 = 0;
-    print('Limpei a pontuação para novo jogo!');
   }
 
   @observable

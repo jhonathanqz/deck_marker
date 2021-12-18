@@ -1,3 +1,7 @@
+import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
+import 'package:deck_marker/presentation/shared/style/app_input_border.dart';
+import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
+import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CardOptionsWidget extends StatelessWidget {
@@ -8,49 +12,44 @@ class CardOptionsWidget extends StatelessWidget {
   final Color colorBackground;
   final String imageDirectory;
 
-  CardOptionsWidget({
+  const CardOptionsWidget({
+    Key? key,
     required this.titleService,
     required this.subTitleService,
     required this.icon,
     required this.colorBackground,
     required this.function,
     required this.imageDirectory,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: function,
       child: Container(
-        //height: 150,
-        //width: 150,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+        decoration: AppInputBorder.borderRadius.copyWith(
           color: colorBackground,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
               height: 80,
               child: Image.asset(
                 imageDirectory,
                 fit: BoxFit.contain,
               ),
             ),
-            SizedBox(height: 10),
-            Container(
+            AppSpacing.sm,
+            SizedBox(
               child: Text(
                 titleService,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+                style: AppTextStyles.headingBold,
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 5),
+              padding: AppEdgeInsets.vmin,
               child: Text(subTitleService),
             )
           ],

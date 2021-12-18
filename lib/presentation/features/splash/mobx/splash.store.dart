@@ -1,6 +1,5 @@
 import 'package:deck_marker/app/injection_container.dart';
 import 'package:deck_marker/app/name_route.dart';
-import 'package:deck_marker/domain/entities/user_settings.dart';
 import 'package:deck_marker/presentation/features/buraco/mobx/buraco.store.dart';
 import 'package:deck_marker/presentation/features/settings/mobx/settings.store.dart';
 import 'package:deck_marker/utils/cool_navigate.dart';
@@ -42,7 +41,5 @@ abstract class SplashBase with Store {
         ((await settingsStore.getPlayersBuraco()).playersTeam1);
     bs.fullPlayersTeam2 =
         ((await settingsStore.getPlayersBuraco()).playersTeam2);
-
-    print('Salvei os pontos: ${bs.pontosTime1}');
   }
 }

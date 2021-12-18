@@ -80,10 +80,9 @@ class _JogoBuracoState extends State<JogoBuraco> {
                       height: MediaQuery.of(context).size.height,
                       child: SingleChildScrollView(
                         child: Column(
-                          children: [
+                          children: const [
                             CardTime1(),
                             CardTime2(),
-                            //Image.asset('images/cartas1.png')
                           ],
                         ),
                       ),
@@ -136,7 +135,7 @@ class _JogoBuracoState extends State<JogoBuraco> {
             scoreTeam2: '0',
             callbackSucess: () {},
           );
-          Navigator.of(context).pop();
+          coolNavigate.goBack();
         },
       ),
     );
@@ -172,7 +171,7 @@ class _JogoBuracoState extends State<JogoBuraco> {
   void showWinner() {
     DialogHelper.open(
       context: context,
-      content: AlertWinner(),
+      content: const AlertWinner(),
     );
   }
 }

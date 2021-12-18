@@ -1,44 +1,68 @@
 import 'package:deck_marker/app/injection_container.dart';
+import 'package:deck_marker/app/name_route.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
-import 'package:deck_marker/presentation/features/truco/pages/jogo_truco.dart';
 import 'package:deck_marker/presentation/shared/helpers/snack_helper.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
 import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
-import 'package:deck_marker/presentation/shared/style/app_input_border.dart';
 import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
 import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
 import 'package:deck_marker/presentation/shared/widgets/button/button_primary.dart';
 import 'package:deck_marker/presentation/shared/widgets/scaffold/scaffold_primary.dart';
 import 'package:deck_marker/presentation/shared/widgets/textfield/simple_textfield.dart';
+import 'package:deck_marker/utils/cool_navigate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class HomeJogador extends StatelessWidget {
-  HomeJogador({Key? key}) : super(key: key);
+class HomeJogador extends StatefulWidget {
+  const HomeJogador({Key? key}) : super(key: key);
+
+  @override
+  _HomeJogadorState createState() => _HomeJogadorState();
+}
+
+class _HomeJogadorState extends State<HomeJogador> {
   final ij = sl<TrucoStore>();
+
   final TextEditingController namePlayer1Controller = TextEditingController();
+
   final TextEditingController namePlayer2Controller = TextEditingController();
+
   final TextEditingController namePlayer3Controller = TextEditingController();
+
   final TextEditingController namePlayer4Controller = TextEditingController();
+
+  @override
+  void initState() {
+    namePlayer1Controller.text = '';
+    namePlayer2Controller.text = '';
+    namePlayer3Controller.text = '';
+    namePlayer4Controller.text = '';
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    namePlayer1Controller.dispose();
+    namePlayer2Controller.dispose();
+    namePlayer3Controller.dispose();
+    namePlayer4Controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ScaffoldPrimary(
       title: 'Marcador de Truco',
       child: Container(
-        color: Colors.grey[200],
+        color: AppColors.grey2,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         margin: AppEdgeInsets.sdAll,
         child: ListView(
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                left: 8,
-                bottom: 15,
-              ),
-              child: Container(
+              padding: AppEdgeInsets.sdAll,
+              child: SizedBox(
                 height: 200,
                 width: 200,
                 child: Image.asset(
@@ -104,16 +128,10 @@ class HomeJogador extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(
-                                      bottom: 15,
-                                    ),
-                                    child: Text(
+                                    padding: AppEdgeInsets.bmd,
+                                    child: const Text(
                                       'Nomes dupla 2:',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                      style: AppTextStyles.titleBold,
                                     ),
                                   ),
                                   Center(
@@ -127,9 +145,7 @@ class HomeJogador extends StatelessWidget {
                                       onSubmitted: (_) {},
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+                                  AppSpacing.sm,
                                   Center(
                                     child: SimpleTextField(
                                       onChanged: ij.setJogador4,
@@ -164,19 +180,9 @@ class HomeJogador extends StatelessWidget {
 
   void _start(BuildContext context) {
     if (ij.forPlayers == true && ij.isForPlayersValid == true) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => HomeJogo(),
-        ),
-      );
+      coolNavigate.pushReplacementNamed(NameRoute.jogoTruco);
     } else if (ij.isPlayersValid == true && ij.forPlayers == false) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (BuildContext context) => HomeJogo(),
-        ),
-      );
+      coolNavigate.pushReplacementNamed(NameRoute.jogoTruco);
     } else {
       _onFail(context);
     }

@@ -1,15 +1,24 @@
 import 'package:deck_marker/app/injection_container.dart';
+import 'package:deck_marker/app/name_route.dart';
 import 'package:deck_marker/presentation/features/buraco/widgets/alert_nova_partida.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
-import 'package:deck_marker/presentation/features/truco/pages/escolha_do_jogo_truco.dart';
 import 'package:deck_marker/presentation/features/truco/widgets/alert_novo_jogo_truco.dart';
 import 'package:deck_marker/presentation/shared/helpers/dialog_helper.dart';
+import 'package:deck_marker/presentation/shared/style/app_colors.dart';
+import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
+import 'package:deck_marker/presentation/shared/style/app_input_border.dart';
+import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
+import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
+import 'package:deck_marker/presentation/shared/widgets/button/button_primary.dart';
+import 'package:deck_marker/presentation/shared/widgets/button/button_value.dart';
+import 'package:deck_marker/utils/cool_navigate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:deck_marker/presentation/shared/widgets/button/button_value.dart';
 
 class HomeJogo extends StatefulWidget {
+  const HomeJogo({Key? key}) : super(key: key);
+
   @override
   _HomeJogoState createState() => _HomeJogoState();
 }
@@ -80,8 +89,8 @@ class _HomeJogoState extends State<HomeJogo> {
               SafeArea(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    image: DecorationImage(
+                    color: AppColors.grey2,
+                    image: const DecorationImage(
                       image: AssetImage(
                         "images/cartas1.png",
                       ),
@@ -94,26 +103,19 @@ class _HomeJogoState extends State<HomeJogo> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                               left: 20,
                               top: 25,
                               right: 20,
                             ),
-                            child: Container(
+                            child: SizedBox(
                               height: 40.0,
                               width: 150,
-                              child: RaisedButton(
-                                onPressed: () {
-                                  showNovaPartida(context);
-                                },
-                                child: Text(
-                                  "Nova Partida",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                  ),
-                                ),
-                                color: Colors.black,
+                              child: ButtonPrimary(
+                                onTap: () => showNovaPartida(context),
+                                title: 'Nova Partida',
+                                colorButton: AppColors.black,
+                                colorText: AppColors.white,
                               ),
                             ),
                           ),
@@ -123,26 +125,19 @@ class _HomeJogoState extends State<HomeJogo> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                               left: 20,
                               top: 10,
                               right: 20,
                             ),
-                            child: Container(
+                            child: SizedBox(
                               height: 40.0,
                               width: 150,
-                              child: RaisedButton(
-                                onPressed: () {
-                                  showNovoJogoTruco(context);
-                                },
-                                child: Text(
-                                  "Novo Jogo",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                color: Colors.black,
+                              child: ButtonPrimary(
+                                onTap: () => showNovoJogoTruco(context),
+                                title: 'Nova Jogo',
+                                colorButton: AppColors.black,
+                                colorText: AppColors.white,
                               ),
                             ),
                           ),
@@ -152,7 +147,7 @@ class _HomeJogoState extends State<HomeJogo> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                               left: 20,
                               top: 10,
                               right: 20,
@@ -160,32 +155,32 @@ class _HomeJogoState extends State<HomeJogo> {
                             child: Container(
                               height: 40.0,
                               width: 150,
-                              child: RaisedButton(
-                                onPressed: () {
+                              decoration: AppInputBorder.borderRadius.copyWith(
+                                color: AppColors.black,
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
                                   ij.reverse();
                                   _mensagemTime1();
                                   _mensagemTime2();
                                 },
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       FontAwesomeIcons.history,
                                       color: Colors.yellowAccent,
                                       size: 20,
                                     ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
+                                    AppSpacing.smW,
                                     Text(
                                       "Desfazer",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
+                                      style: AppTextStyles.title.copyWith(
+                                        color: AppColors.white,
                                       ),
                                     ),
                                   ],
                                 ),
-                                color: Colors.black,
                               ),
                             ),
                           ),
@@ -200,61 +195,48 @@ class _HomeJogoState extends State<HomeJogo> {
                 children: <Widget>[
                   ij.forPlayers == true
                       ? Container(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             left: 20,
                             right: 20,
                             top: 5,
                             bottom: 5,
                           ),
-                          margin: EdgeInsets.only(
-                            left: 20,
-                            right: 20,
-                          ),
+                          margin: AppEdgeInsets.hmd,
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[800],
+                          decoration: AppInputBorder.borderRadius.copyWith(
+                            color: AppColors.grey800,
                           ),
                           child: Center(
                             child: Text(
                               "${ij.nameJogador1} & ${ij.nameJogador2} ",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
+                              style: AppTextStyles.headingBold.copyWith(
+                                color: AppColors.white,
                               ),
                             ),
                           ),
                         )
                       : Container(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             left: 20,
                             right: 20,
                             top: 5,
                             bottom: 5,
                           ),
-                          margin: EdgeInsets.only(
-                            left: 20,
-                            right: 20,
-                          ),
+                          margin: AppEdgeInsets.hmd,
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[800],
+                          decoration: AppInputBorder.borderRadius.copyWith(
+                            color: AppColors.grey800,
                           ),
                           child: Center(
                             child: Text(
-                              '${ij.nameJogador1}',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25),
+                              ij.nameJogador1,
+                              style: AppTextStyles.headingBold.copyWith(
+                                color: AppColors.white,
+                              ),
                             ),
                           ),
                         ),
-                  SizedBox(
-                    height: 5,
-                  ),
+                  AppSpacing.min,
                   Text(
                     "${ij.time1}",
                     style: TextStyle(
@@ -334,54 +316,43 @@ class _HomeJogoState extends State<HomeJogo> {
                 children: <Widget>[
                   ij.forPlayers == true
                       ? Container(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             left: 20,
                             right: 20,
                             top: 5,
                             bottom: 5,
                           ),
-                          margin: EdgeInsets.only(
-                            left: 20,
-                            right: 20,
-                          ),
+                          margin: AppEdgeInsets.hmd,
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[800],
+                          decoration: AppInputBorder.borderRadius.copyWith(
+                            color: AppColors.grey800,
                           ),
                           child: Center(
                             child: Text(
                               "${ij.nameJogador3} & ${ij.nameJogador4} ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25),
+                              style: AppTextStyles.headingBold.copyWith(
+                                color: AppColors.white,
+                              ),
                             ),
                           ),
                         )
                       : Container(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             left: 20,
                             right: 20,
                             top: 5,
                             bottom: 5,
                           ),
-                          margin: EdgeInsets.only(
-                            left: 20,
-                            right: 20,
-                          ),
+                          margin: AppEdgeInsets.hmd,
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.grey[800],
+                          decoration: AppInputBorder.borderRadius.copyWith(
+                            color: AppColors.grey800,
                           ),
                           child: Center(
                             child: Text(
-                              '${ij.nameJogador2}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
+                              ij.nameJogador2,
+                              style: AppTextStyles.headingBold.copyWith(
+                                color: AppColors.white,
                               ),
                             ),
                           ),
@@ -443,9 +414,7 @@ class _HomeJogoState extends State<HomeJogo> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 25,
-                    ),
+                    padding: AppEdgeInsets.bmd,
                     child: Text(
                       ij.messageTime2,
                       style: TextStyle(
@@ -472,7 +441,7 @@ class _HomeJogoState extends State<HomeJogo> {
       content: AlertNovoJogoTruco(
         function: () async {
           ij.novoJogo();
-          Navigator.of(context).pop();
+          coolNavigate.goBack();
         },
       ),
     );
@@ -484,12 +453,8 @@ class _HomeJogoState extends State<HomeJogo> {
       content: AlertNovaPartida(
         function: () async {
           ij.deleteAll();
-          Navigator.of(context).pop();
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                builder: (context) => EscolhaDoJogoTruco(),
-              ),
-              (Route<dynamic> route) => false);
+          coolNavigate.goBack();
+          coolNavigate.removeUntil(NameRoute.escolhaJogoTruco);
         },
       ),
     );

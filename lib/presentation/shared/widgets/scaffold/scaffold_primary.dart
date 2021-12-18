@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
-import 'package:deck_marker/presentation/shared/widgets/appbar/app_bar_tab.dart';
 import 'package:deck_marker/presentation/shared/widgets/appbar/app_bar_widget.dart';
 import 'package:deck_marker/presentation/shared/widgets/loading/loading.dart';
+import 'package:flutter/material.dart';
 
 class ScaffoldPrimary extends StatelessWidget {
   final String title;

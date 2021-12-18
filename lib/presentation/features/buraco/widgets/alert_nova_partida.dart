@@ -1,3 +1,9 @@
+import 'package:deck_marker/presentation/shared/style/app_colors.dart';
+import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
+import 'package:deck_marker/presentation/shared/style/app_input_border.dart';
+import 'package:deck_marker/presentation/shared/style/app_spacing.dart';
+import 'package:deck_marker/presentation/shared/style/app_text_styles.dart';
+import 'package:deck_marker/utils/cool_navigate.dart';
 import 'package:flutter/material.dart';
 
 class AlertNovaPartida extends StatelessWidget {
@@ -18,21 +24,21 @@ class AlertNovaPartida extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.close,
                   color: Colors.black38,
                   size: 35,
                 ),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => coolNavigate.goBack(),
               ),
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 50, bottom: 20),
+            padding: const EdgeInsets.only(top: 50, bottom: 20),
             child: Column(
               children: [
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     height: 80,
                     child: Image.asset(
                       'images/restart2_2.png',
@@ -40,25 +46,28 @@ class AlertNovaPartida extends StatelessWidget {
                     ),
                   ),
                 ),
+                AppSpacing.sm,
                 Container(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: AppEdgeInsets.tmd,
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
                           text:
                               'Você deseja realmente abandonar a partida atual?',
                           style: TextStyle(
-                              color: Colors.grey[900],
-                              fontSize: 21,
-                              fontWeight: FontWeight.w800),
+                            color: AppColors.grey900,
+                            fontSize: 21,
+                            fontWeight: FontWeight.w800,
+                          ),
                           children: <TextSpan>[
                             TextSpan(
                               text:
                                   '\n\nApós confirmação, você será redirecionado para tela de jogadores e todos os pontos da partida atual serão zerados!',
                               style: TextStyle(
-                                  color: Colors.grey[900],
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400),
+                                color: AppColors.grey900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ]),
                     )),
@@ -68,25 +77,26 @@ class AlertNovaPartida extends StatelessWidget {
         ],
       ),
       content: GestureDetector(
-          onTap: function,
-          child: Container(
-            height: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.red[700],
-            ),
-            child: Material(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.red[700],
-              child: Center(
-                child: Text('Nova Partida!',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20)),
+        onTap: function,
+        child: Container(
+          height: 50,
+          decoration: AppInputBorder.borderRadius.copyWith(
+            color: AppColors.red700,
+          ),
+          child: Material(
+            borderRadius: BorderRadius.circular(10.0),
+            color: AppColors.red700,
+            child: Center(
+              child: Text(
+                'Nova Partida!',
+                style: AppTextStyles.headingBold.copyWith(
+                  color: AppColors.white,
+                ),
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
