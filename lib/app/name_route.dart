@@ -8,4 +8,6 @@ class NameRoute {
   static const String resumoPontuacaoBuraco = '/resumo-pontuacao-buraco';
   /* Jogo de truco */
   static const String homeJogadorTruco = '/home-jogador-truco';
+  static const String escolhaJogoTruco = '/escolha-truco';
+  static const String jogoTruco = '/jogo-truco';
 }

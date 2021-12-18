@@ -90,13 +90,10 @@ abstract class SettingsBase with Store {
     try {
       isLoading = true;
       (await getPlayersBuraco()).playersTeam1;
-      print('**chequei');
-      print('**result: ${(await getPlayersBuraco()).playersTeam1}');
       isLoading = false;
       callbackSucess();
     } catch (e) {
       isLoading = false;
-      print('*Erooooo');
       return navigateFail();
     }
   }
@@ -107,7 +104,6 @@ abstract class SettingsBase with Store {
       final score = await getScoreBuracoSettingsUseCase(
         buraco,
       );
-      print('puxando score: ${score.scoreTeam1}');
 
       buraco = score;
       return buraco;
@@ -152,7 +148,6 @@ abstract class SettingsBase with Store {
     try {
       isLoading = true;
       await deleteTableUseCase(table);
-      print('**tabela deletada: $table');
       isLoading = false;
     } catch (e) {
       isLoading = false;
@@ -193,7 +188,6 @@ abstract class SettingsBase with Store {
           playersTeam2: playersTeam2,
         ),
       );
-      print('**Salvei os jogadores no BD $playersTeam1 -- $playersTeam2');
       isLoading = false;
     } catch (e) {
       isLoading = false;

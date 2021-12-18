@@ -1,3 +1,4 @@
+import 'package:deck_marker/utils/cool_navigate.dart';
 import 'package:flutter/material.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
 import 'package:deck_marker/presentation/shared/style/app_edge_insets.dart';
@@ -66,7 +67,7 @@ class SimpleAlert extends StatelessWidget {
                       colorText: AppColors.white,
                       colorButton: AppColors.grey,
                       onTap: () {
-                        Navigator.of(context).pop();
+                        coolNavigate.goBack();
                       },
                     ),
                   ),
@@ -75,7 +76,7 @@ class SimpleAlert extends StatelessWidget {
                     child: ButtonPrimary(
                       title: nextText,
                       onTap: () async {
-                        Navigator.of(context).pop();
+                        coolNavigate.goBack();
                         onTap();
                       },
                     ),
@@ -85,7 +86,7 @@ class SimpleAlert extends StatelessWidget {
             : ButtonPrimary(
                 title: nextText,
                 onTap: () async {
-                  Navigator.of(context).pop();
+                  coolNavigate.goBack();
                   onTap();
                 },
               ),

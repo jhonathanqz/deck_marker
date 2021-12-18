@@ -23,6 +23,8 @@ class AppColors {
   static final Color mediumGrey = Colors.grey[400]!;
   static final Color grey2 = Colors.grey[200]!;
   static final Color grey3 = Colors.grey[300]!;
+  static final Color grey800 = Colors.grey[800]!;
+  static final Color grey900 = Colors.grey[900]!;
   static const Color lightGreen = Color(0xFF57C79A);
   static const Color lightRed = Color(0xffFB7A60);
 
@@ -39,4 +41,8 @@ class AppColors {
   static final Color blue300 = Colors.blue[300]!;
   static final Color blue200 = Colors.blue[200]!;
   static const Color cardsColor = Color(0xff198ae6);
+
+  static final Color red700 = Colors.red[700]!;
+  static final Color green700 = Colors.green[700]!;
+  static final Color yellow700 = Colors.yellow[700]!;
 }
