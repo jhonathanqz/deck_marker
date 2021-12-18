@@ -50,8 +50,6 @@ Future<void> getToken() async {
   String? token = await FirebaseMessaging.instance.getToken();
 
   token = token;
-
-  print('***Token do firebase: $token');
 }
 
 Future<void> initLocalNotification() async {

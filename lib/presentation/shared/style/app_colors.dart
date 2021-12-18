@@ -23,6 +23,7 @@ class AppColors {
   static final Color mediumGrey = Colors.grey[400]!;
   static final Color grey2 = Colors.grey[200]!;
   static final Color grey3 = Colors.grey[300]!;
+  static final Color grey700 = Colors.grey[700]!;
   static final Color grey800 = Colors.grey[800]!;
   static final Color grey900 = Colors.grey[900]!;
   static const Color lightGreen = Color(0xFF57C79A);

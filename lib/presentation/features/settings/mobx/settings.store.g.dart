@@ -39,6 +39,21 @@ mixin _$SettingsStore on SettingsBase, Store {
     });
   }
 
+  final _$trucoAtom = Atom(name: 'SettingsBase.truco');
+
+  @override
+  Truco get truco {
+    _$trucoAtom.reportRead();
+    return super.truco;
+  }
+
+  @override
+  set truco(Truco value) {
+    _$trucoAtom.reportWrite(value, super.truco, () {
+      super.truco = value;
+    });
+  }
+
   final _$errorAtom = Atom(name: 'SettingsBase.error');
 
   @override
@@ -65,6 +80,17 @@ mixin _$SettingsStore on SettingsBase, Store {
         callbackSucess: callbackSucess, navigateFail: navigateFail));
   }
 
+  final _$checkScoreTrucoAsyncAction =
+      AsyncAction('SettingsBase.checkScoreTruco');
+
+  @override
+  Future<void> checkScoreTruco(
+      {required dynamic Function() callbackSucess,
+      required dynamic Function() navigateFail}) {
+    return _$checkScoreTrucoAsyncAction.run(() => super.checkScoreTruco(
+        callbackSucess: callbackSucess, navigateFail: navigateFail));
+  }
+
   final _$hasScoreBuracoSettingsAsyncAction =
       AsyncAction('SettingsBase.hasScoreBuracoSettings');
 
@@ -72,6 +98,15 @@ mixin _$SettingsStore on SettingsBase, Store {
   Future<bool> hasScoreBuracoSettings() {
     return _$hasScoreBuracoSettingsAsyncAction
         .run(() => super.hasScoreBuracoSettings());
+  }
+
+  final _$hasScoreTrucoSettingsAsyncAction =
+      AsyncAction('SettingsBase.hasScoreTrucoSettings');
+
+  @override
+  Future<bool> hasScoreTrucoSettings() {
+    return _$hasScoreTrucoSettingsAsyncAction
+        .run(() => super.hasScoreTrucoSettings());
   }
 
   final _$checkPlayersBuracoSettingsAsyncAction =
@@ -86,12 +121,31 @@ mixin _$SettingsStore on SettingsBase, Store {
             callbackSucess: callbackSucess, navigateFail: navigateFail));
   }
 
+  final _$checkPlayersTrucoSettingsAsyncAction =
+      AsyncAction('SettingsBase.checkPlayersTrucoSettings');
+
+  @override
+  Future<void> checkPlayersTrucoSettings(
+      {required dynamic Function() callbackSucess,
+      required dynamic Function() navigateFail}) {
+    return _$checkPlayersTrucoSettingsAsyncAction.run(() => super
+        .checkPlayersTrucoSettings(
+            callbackSucess: callbackSucess, navigateFail: navigateFail));
+  }
+
   final _$getScoreBuracoAsyncAction =
       AsyncAction('SettingsBase.getScoreBuraco');
 
   @override
   Future<Buraco> getScoreBuraco() {
     return _$getScoreBuracoAsyncAction.run(() => super.getScoreBuraco());
+  }
+
+  final _$getScoreTrucoAsyncAction = AsyncAction('SettingsBase.getScoreTruco');
+
+  @override
+  Future<Truco> getScoreTruco() {
+    return _$getScoreTrucoAsyncAction.run(() => super.getScoreTruco());
   }
 
   final _$setScoreBuracoAsyncAction =
@@ -104,6 +158,21 @@ mixin _$SettingsStore on SettingsBase, Store {
       required String scoreTeam2,
       required dynamic Function() callbackSucess}) {
     return _$setScoreBuracoAsyncAction.run(() => super.setScoreBuraco(
+        context: context,
+        scoreTeam1: scoreTeam1,
+        scoreTeam2: scoreTeam2,
+        callbackSucess: callbackSucess));
+  }
+
+  final _$setScoreTrucoAsyncAction = AsyncAction('SettingsBase.setScoreTruco');
+
+  @override
+  Future<void> setScoreTruco(
+      {required BuildContext context,
+      required String scoreTeam1,
+      required String scoreTeam2,
+      required dynamic Function() callbackSucess}) {
+    return _$setScoreTrucoAsyncAction.run(() => super.setScoreTruco(
         context: context,
         scoreTeam1: scoreTeam1,
         scoreTeam2: scoreTeam2,
@@ -127,6 +196,14 @@ mixin _$SettingsStore on SettingsBase, Store {
     return _$getPlayersBuracoAsyncAction.run(() => super.getPlayersBuraco());
   }
 
+  final _$getPlayersTrucoAsyncAction =
+      AsyncAction('SettingsBase.getPlayersTruco');
+
+  @override
+  Future<Truco> getPlayersTruco() {
+    return _$getPlayersTrucoAsyncAction.run(() => super.getPlayersTruco());
+  }
+
   final _$setPlayersBuracoAsyncAction =
       AsyncAction('SettingsBase.setPlayersBuraco');
 
@@ -136,6 +213,20 @@ mixin _$SettingsStore on SettingsBase, Store {
       required String playersTeam1,
       required String playersTeam2}) {
     return _$setPlayersBuracoAsyncAction.run(() => super.setPlayersBuraco(
+        context: context,
+        playersTeam1: playersTeam1,
+        playersTeam2: playersTeam2));
+  }
+
+  final _$setPlayersTrucoAsyncAction =
+      AsyncAction('SettingsBase.setPlayersTruco');
+
+  @override
+  Future<void> setPlayersTruco(
+      {required BuildContext context,
+      required String playersTeam1,
+      required String playersTeam2}) {
+    return _$setPlayersTrucoAsyncAction.run(() => super.setPlayersTruco(
         context: context,
         playersTeam1: playersTeam1,
         playersTeam2: playersTeam2));
@@ -196,6 +287,50 @@ mixin _$SettingsStore on SettingsBase, Store {
   }
 
   @override
+  void setScoreTeam1Truco(String value) {
+    final _$actionInfo = _$SettingsBaseActionController.startAction(
+        name: 'SettingsBase.setScoreTeam1Truco');
+    try {
+      return super.setScoreTeam1Truco(value);
+    } finally {
+      _$SettingsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setScoreTeam2Truco(String value) {
+    final _$actionInfo = _$SettingsBaseActionController.startAction(
+        name: 'SettingsBase.setScoreTeam2Truco');
+    try {
+      return super.setScoreTeam2Truco(value);
+    } finally {
+      _$SettingsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setPlayersTeam1Truco(String value) {
+    final _$actionInfo = _$SettingsBaseActionController.startAction(
+        name: 'SettingsBase.setPlayersTeam1Truco');
+    try {
+      return super.setPlayersTeam1Truco(value);
+    } finally {
+      _$SettingsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setPlayersTeam2Truco(String value) {
+    final _$actionInfo = _$SettingsBaseActionController.startAction(
+        name: 'SettingsBase.setPlayersTeam2Truco');
+    try {
+      return super.setPlayersTeam2Truco(value);
+    } finally {
+      _$SettingsBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void wipeSettingsStore() {
     final _$actionInfo = _$SettingsBaseActionController.startAction(
         name: 'SettingsBase.wipeSettingsStore');
@@ -211,6 +346,7 @@ mixin _$SettingsStore on SettingsBase, Store {
     return '''
 isLoading: ${isLoading},
 buraco: ${buraco},
+truco: ${truco},
 error: ${error}
     ''';
   }

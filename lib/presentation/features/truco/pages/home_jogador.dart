@@ -1,5 +1,6 @@
 import 'package:deck_marker/app/injection_container.dart';
 import 'package:deck_marker/app/name_route.dart';
+import 'package:deck_marker/presentation/features/settings/mobx/settings.store.dart';
 import 'package:deck_marker/presentation/features/truco/mobx/truco.store.dart';
 import 'package:deck_marker/presentation/shared/helpers/snack_helper.dart';
 import 'package:deck_marker/presentation/shared/style/app_colors.dart';
@@ -51,138 +52,160 @@ class _HomeJogadorState extends State<HomeJogador> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldPrimary(
-      title: 'Marcador de Truco',
-      child: Container(
-        color: AppColors.grey2,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        margin: AppEdgeInsets.sdAll,
-        child: ListView(
-          children: [
-            Padding(
-              padding: AppEdgeInsets.sdAll,
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: Image.asset(
-                  "images/logo.png",
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-            const Padding(
-              padding: AppEdgeInsets.sdAll,
-              child: SizedBox(
-                child: Text(
-                  "Digite logo a baixo o nome dos jogadores por favor:",
-                  style: AppTextStyles.headingBold,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            AppSpacing.md,
-            Observer(
-              builder: (_) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ij.forPlayers == true
-                        ? Container(
-                            padding: AppEdgeInsets.bmd,
-                            child: const Text(
-                              'Nomes dupla 1:',
-                              style: AppTextStyles.titleBold,
-                            ),
-                          )
-                        : Container(),
-                    Center(
-                      child: SimpleTextField(
-                        onChanged: ij.setJogador1,
-                        textEditingController: namePlayer1Controller,
-                        labelText: 'Nome Jogador(a) 1',
-                        hintText: 'Nome:',
-                        textInputType: TextInputType.text,
-                        onSubmitted: (_) {},
-                      ),
+    return Observer(
+      builder: (_) {
+        final ss = sl<SettingsStore>();
+        return ScaffoldPrimary(
+          isLoading: ss.isLoading,
+          title: 'Marcador de Truco',
+          child: Container(
+            color: AppColors.grey2,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            margin: AppEdgeInsets.sdAll,
+            child: ListView(
+              children: [
+                Padding(
+                  padding: AppEdgeInsets.sdAll,
+                  child: SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: Image.asset(
+                      "images/logo.png",
+                      fit: BoxFit.fitHeight,
                     ),
-                    AppSpacing.md,
-                    Center(
-                      child: SimpleTextField(
-                        onChanged: ij.setJogador2,
-                        textEditingController: namePlayer2Controller,
-                        labelText: 'Nome Jogador(a) 2',
-                        hintText: 'Nome:',
-                        textInputType: TextInputType.text,
-                        onSubmitted: (_) {},
-                      ),
+                  ),
+                ),
+                const Padding(
+                  padding: AppEdgeInsets.sdAll,
+                  child: SizedBox(
+                    child: Text(
+                      "Digite logo a baixo o nome dos jogadores por favor:",
+                      style: AppTextStyles.headingBold,
+                      textAlign: TextAlign.center,
                     ),
-                    AppSpacing.md,
-                    AppSpacing.sm,
-                    Observer(
-                      builder: (_) {
-                        return ij.forPlayers == true
-                            ? Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    padding: AppEdgeInsets.bmd,
-                                    child: const Text(
-                                      'Nomes dupla 2:',
-                                      style: AppTextStyles.titleBold,
-                                    ),
-                                  ),
-                                  Center(
-                                    child: SimpleTextField(
-                                      onChanged: ij.setJogador3,
-                                      textEditingController:
-                                          namePlayer3Controller,
-                                      labelText: 'Nome Jogador(a) 3',
-                                      hintText: 'Nome:',
-                                      textInputType: TextInputType.text,
-                                      onSubmitted: (_) {},
-                                    ),
-                                  ),
-                                  AppSpacing.sm,
-                                  Center(
-                                    child: SimpleTextField(
-                                      onChanged: ij.setJogador4,
-                                      textEditingController:
-                                          namePlayer4Controller,
-                                      labelText: 'Nome Jogador(a) 4',
-                                      hintText: 'Nome:',
-                                      textInputType: TextInputType.text,
-                                      onSubmitted: (_) {},
-                                    ),
-                                  ),
-                                ],
+                  ),
+                ),
+                AppSpacing.md,
+                Observer(
+                  builder: (_) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ij.forPlayers == true
+                            ? Container(
+                                padding: AppEdgeInsets.bmd,
+                                child: const Text(
+                                  'Nomes dupla 1:',
+                                  style: AppTextStyles.titleBold,
+                                ),
                               )
-                            : Container();
-                      },
-                    ),
-                    AppSpacing.md,
-                    AppSpacing.sm,
-                    ButtonPrimary(
-                      onTap: () => _start(context),
-                      title: 'Entrar',
-                    ),
-                  ],
-                );
-              },
-            )
-          ],
-        ),
-      ),
+                            : Container(),
+                        Center(
+                          child: SimpleTextField(
+                            onChanged: ij.setJogador1,
+                            textEditingController: namePlayer1Controller,
+                            labelText: 'Nome Jogador(a) 1',
+                            hintText: 'Nome:',
+                            textInputType: TextInputType.text,
+                            onSubmitted: (_) {},
+                          ),
+                        ),
+                        AppSpacing.md,
+                        Center(
+                          child: SimpleTextField(
+                            onChanged: ij.setJogador2,
+                            textEditingController: namePlayer2Controller,
+                            labelText: 'Nome Jogador(a) 2',
+                            hintText: 'Nome:',
+                            textInputType: TextInputType.text,
+                            onSubmitted: (_) {},
+                          ),
+                        ),
+                        AppSpacing.md,
+                        AppSpacing.sm,
+                        Observer(
+                          builder: (_) {
+                            return ij.forPlayers == true
+                                ? Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: AppEdgeInsets.bmd,
+                                        child: const Text(
+                                          'Nomes dupla 2:',
+                                          style: AppTextStyles.titleBold,
+                                        ),
+                                      ),
+                                      Center(
+                                        child: SimpleTextField(
+                                          onChanged: ij.setJogador3,
+                                          textEditingController:
+                                              namePlayer3Controller,
+                                          labelText: 'Nome Jogador(a) 3',
+                                          hintText: 'Nome:',
+                                          textInputType: TextInputType.text,
+                                          onSubmitted: (_) {},
+                                        ),
+                                      ),
+                                      AppSpacing.sm,
+                                      Center(
+                                        child: SimpleTextField(
+                                          onChanged: ij.setJogador4,
+                                          textEditingController:
+                                              namePlayer4Controller,
+                                          labelText: 'Nome Jogador(a) 4',
+                                          hintText: 'Nome:',
+                                          textInputType: TextInputType.text,
+                                          onSubmitted: (_) {},
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Container();
+                          },
+                        ),
+                        AppSpacing.md,
+                        AppSpacing.sm,
+                        ButtonPrimary(
+                          onTap: () => _start(context, ss),
+                          title: 'Entrar',
+                        ),
+                      ],
+                    );
+                  },
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
-  void _start(BuildContext context) {
+  void _start(
+    BuildContext context,
+    SettingsStore ss,
+  ) async {
+    ij.setFullPlayersTeam();
+    await ss.setPlayersTruco(
+      context: context,
+      playersTeam1: ij.fullPlayersTeam1,
+      playersTeam2: ij.fullPlayersTeam2,
+    );
+    await ss.setScoreTruco(
+      context: context,
+      scoreTeam1: '0',
+      scoreTeam2: '0',
+      callbackSucess: () {},
+    );
     if (ij.forPlayers == true && ij.isForPlayersValid == true) {
-      coolNavigate.pushReplacementNamed(NameRoute.jogoTruco);
+      coolNavigate.pushReplacementNamed(NameRoute.newJogoTruco);
     } else if (ij.isPlayersValid == true && ij.forPlayers == false) {
-      coolNavigate.pushReplacementNamed(NameRoute.jogoTruco);
+      coolNavigate.pushReplacementNamed(NameRoute.newJogoTruco);
     } else {
       _onFail(context);
     }
