@@ -383,7 +383,7 @@ abstract class SettingsBase with Store {
     await deleteTable(
       context: context,
       table: 'ScoreTruco',
-    );
+    ); //deleta tabela de pontos do truco
     await deleteTable(
       context: context,
       table: 'TeamTruco',
